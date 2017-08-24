@@ -1,47 +1,43 @@
-<html>
+<!--
+  Title: 新手任務
+  Description: 使用vue.js完成「顯示文字框輸入的文字」以及「顯示兩文字方框數字相加結果」
+  Author: 陳琬嫣 （Wendy Chen）
+  Version: 0.0.1
+  OS: ubuntu 16.04
+-->
+<!DOCTYPE html>
+
   <head>
+    <meta charset="utf-8">
     <title>Vue Task</title>
     <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
   </head>
+
   <body>
+      <!-- 介面 -->
       <div id="app">
           <form>
             <ol>
+              <!-- Task 1: 做一個文字輸入，按下確認會在畫面上直接顯示剛剛輸入的字 -->
               <li>
                 <input type="text" name="name" ref="name" />
-                <button @click.prevent="showTheName()">Submit</button>
-                <p>Name: {{ name_output }}</p> 
-                
+                <button @click.prevent="showTheName()">確認</button>
+                <p>結果： {{ name_output }}</p>   
               </li>
 
+              <!-- Task 2: 做兩個文字輸入框，按下確認後會把兩個數字相加 -->
               <li>
                   <input type="text" name="num1" ref="n1" />
                   +
                   <input type="text" name="num2" ref="n2" />
                   = ?
-                  <button @click.prevent="addValues()">Add</button>
-                  <p>Answer: {{ add_output }}</p>
+                  <button @click.prevent="addValues()">確認</button>
+                  <p>結果： {{ add_output }}</p>
               </li>
             </ol>
           </form>
       </div>
-
-      <script>
-        var app = new Vue({
-          el: '#app',
-          data: {
-            name_output: '',
-            add_output: ''
-          },
-          methods: {
-            showTheName () {
-              this.name_output = this.$refs.name.value
-            },
-            addValues() {
-              this.add_output = parseInt(this.$refs.n1.value) + parseInt(this.$refs.n2.value)
-            }
-          }
-        })
-      </script>
+      <script src="js/index.js"></script>
   </body>
 </html>
