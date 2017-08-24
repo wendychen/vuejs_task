@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Vue Task</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+      <div id="app">
+          <form>
+            <ol>
+              <li>
+                <input type="text" name="name" ref="name_input" />
+                <button @click.prevent="showTheName()">Submit</button>
+                <p>Name: {{ name_output }}</p> 
+                
+              </li>
+
+              <li>
+                  <input type="text" name="num1" ref="num1_output" />
+                  +
+                  <input type="text" name="num2" ref="num2_output" />
+                  = ?
+                  <button @click.prevent="addValues()">Add</button>
+                  <p>Answer: {{ add_output }}</p>
+              </li>
+            </ol>
+          </form>
+      </div>
+
+      <script>
+        var app = new Vue({
+          el: '#app',
+          data: {
+            name_output: '',
+            add_output: ''
+          },
+          methods: {
+            showTheName () {
+              this.name_output = this.$refs.name_input.value
+            },
+            addValues() {
+              this.add_output = parseInt(this.$refs.num1_output.value) + parseInt(this.$refs.num2_output.value)
+            }
+          }
+        })
+      </script>
+  </body>
+</html>
