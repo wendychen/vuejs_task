@@ -1,8 +1,9 @@
 <!--
-  Title: 新手任務
-  Description: 使用vue.js完成「顯示文字框輸入的文字」以及「顯示兩文字方框數字相加結果」
-  Author: 陳琬嫣 （Wendy Chen）
-  Version: 0.0.1
+  Description:
+  (1) 做一個文字輸入，按下確認會在畫面上直接顯示剛剛輸入的字
+  (2) 做兩個文字輸入框，按下確認後會把兩個數字相加
+  Author: 陳琬嫣 (Wendy Chen)
+  Version: 1.0.0
   OS: ubuntu 16.04
 -->
 <!DOCTYPE html>
@@ -15,18 +16,17 @@
   </head>
 
   <body>
-      <!-- 介面 -->
       <div id="app">
           <form>
             <ol>
-              <!-- Task 1: 做一個文字輸入，按下確認會在畫面上直接顯示剛剛輸入的字 -->
+              <!-- (1) 做一個文字輸入，按下確認會在畫面上直接顯示剛剛輸入的字 -->
               <li>
                 <input type="text" name="name" ref="name" />
                 <button @click.prevent="showTheName()">確認</button>
                 <p>結果： {{ name_output }}</p>   
               </li>
 
-              <!-- Task 2: 做兩個文字輸入框，按下確認後會把兩個數字相加 -->
+              <!-- (2) 做兩個文字輸入框，按下確認後會把兩個數字相加 -->
               <li>
                   <input type="text" name="num1" ref="n1" />
                   +
@@ -34,6 +34,7 @@
                   = ?
                   <button @click.prevent="addValues()">確認</button>
                   <p>結果： {{ add_output }}</p>
+                  <input type="hidden" name="error_check" id="error_check">
               </li>
             </ol>
           </form>
